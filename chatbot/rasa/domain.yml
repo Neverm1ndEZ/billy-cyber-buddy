@@ -1,0 +1,112 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - report_cyberbullying
+  - provide_evidence
+  - express_distress
+  - ask_for_help
+  - express_emotion
+
+responses:
+  utter_greet:
+    - text:
+        "Hello! I'm Billy, and I'm here to help you with any cyberbullying
+        issues. How can I assist you today?"
+    - text:
+        "Hi there! My name is Billy. I'm here to provide support and help with
+        any cyberbullying situations you're facing."
+    - text:
+        "Welcome! I'm Billy, your cyberbullying prevention assistant. Feel free
+        to share what's troubling you."
+
+  utter_cyberbullying_report:
+    - text:
+        "I'm so sorry you're experiencing this. Can you tell me more about
+        what's happening? Everything you share is confidential."
+    - text:
+        "That must be really difficult. You're brave for speaking up. Would you
+        like to share more details about the situation?"
+    - text:
+        "Thank you for telling me about this. You don't have to face this alone.
+        Could you help me understand what's been happening?"
+    - text:
+        "I understand how challenging this must be. Let's work through this
+        together. Can you describe what's been going on?"
+
+  utter_ask_evidence:
+    - text:
+        "It would help if we could document what's happening. Do you have any
+        screenshots or messages you can share?"
+    - text:
+        "To better assist you, could you share any evidence of these
+        interactions, like messages or posts?"
+    - text:
+        "Would you be comfortable sharing any proof of these incidents? This
+        could include screenshots, messages, or other records."
+
+  utter_provide_support:
+    - text:
+        "You're not alone in this. We're here to help you through this
+        situation. Would you like to know what steps we can take?"
+
+  utter_emergency_support:
+    - text:
+        "I understand you're in a difficult situation. Would you like me to
+        connect you with immediate support services?"
+
+  utter_emergency_resources:
+    - text: "Here are some emergency resources to help you."
+
+  utter_evidence_importance:
+    - text: "It's important to collect evidence of the incident."
+
+  utter_offer_resources:
+    - text: "Would you like more resources on this topic?"
+
+entities:
+  - platform
+  - evidence_type
+  - emotion
+
+slots:
+  platform:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: platform
+
+  evidence_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: evidence_type
+
+  emergency_detected:
+    type: bool
+    initial_value: false
+    mappings:
+      - type: from_intent
+        intent: ask_for_help
+        value: true
+
+  evidence_mentioned:
+    type: bool
+    initial_value: false
+    mappings:
+      - type: from_intent
+        intent: provide_evidence
+        value: true
+
+actions:
+  - utter_greet
+  - utter_cyberbullying_report
+  - utter_ask_evidence
+  - utter_provide_support
+  - utter_emergency_support
+  - action_handle_emergency
+  - action_prepare_evidence_collection
+  - action_notify_support

@@ -1,0 +1,80 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - hey there
+
+  - intent: goodbye
+    examples: |
+      - goodbye
+      - see you later
+      - bye
+      - talk to you soon
+
+  - intent: report_cyberbullying
+    examples: |
+      - I'm being bullied online
+      - Someone is harassing me
+      - I'm getting threatening messages
+      - There's someone posting mean things about me
+      - They keep sending me harmful messages
+      - Someone created a fake profile to mock me
+      - They're spreading rumors about me online
+      - I'm being stalked on social media
+
+  - intent: provide_evidence
+    examples: |
+      - I have screenshots of the messages
+      - I saved the conversations
+      - Here are the posts they made
+      - I can show you the messages
+      - I took pictures of their comments
+      - I have proof of what they're doing
+      - Let me share what they sent
+
+  - intent: ask_for_help
+    examples: |
+      - What should I do?
+      - How can I stop this?
+      - I need help
+      - I don't know what to do
+      - Can you help me?
+      - What are my options?
+      - How do I report this?
+
+  - intent: express_emotion
+    examples: |
+      - I'm scared
+      - This is making me anxious
+      - I feel helpless
+      - I'm worried
+      - I don't feel safe
+      - I'm stressed about this
+      - This is affecting my mental health
+
+  - intent: express_distress
+    examples: |
+      - I'm feeling overwhelmed
+      - This is too much for me to handle
+      - I feel distressed
+      - This is affecting me a lot
+
+  - intent: affirm
+    examples: |
+      - yes
+      - sure
+      - absolutely
+      - of course
+
+  - intent: deny
+    examples: |
+      - no
+      - not at all
+      - I don’t think so

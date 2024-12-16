@@ -1,0 +1,63 @@
+version: "3.1"
+
+stories:
+  - story: cyberbullying report path
+    steps:
+      - intent: report_cyberbullying
+      - action: utter_empathize
+      - action: utter_ask_for_evidence
+      - intent: provide_evidence
+      - action: utter_save_evidence
+      - action: utter_next_steps
+
+  - story: emotional support path
+    steps:
+      - intent: express_emotion
+      - action: utter_emotional_support
+      - action: utter_offer_resources
+      - intent: ask_for_help
+      - action: utter_provide_help
+
+  - story: affirm path
+    steps:
+      - intent: affirm
+      - action: utter_provide_support
+
+  - story: greeting path
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+responses:
+  utter_empathize:
+    - text:
+        "I'm so sorry you're going through this. It's not your fault, and you're
+        brave for speaking up. Can you tell me more about what's happening?"
+
+  utter_ask_for_evidence:
+    - text:
+        "It would be helpful to save any evidence of this behavior. Do you have
+        any screenshots, messages, or other proof that you'd like to share?"
+
+  utter_save_evidence:
+    - text:
+        "I'll help you save this evidence securely. This will be important for
+        reporting the incident. Would you like to collect more evidence or
+        discuss next steps?"
+
+  utter_emotional_support:
+    - text:
+        "It's completely normal to feel this way. Your feelings are valid, and
+        you don't have to face this alone. We're here to support you."
+
+  utter_next_steps:
+    - text:
+        "There are several steps we can take to address this. We can report the
+        behavior, block the person, or reach out to appropriate authorities.
+        What would you like to do first?"
+
+  utter_provide_help:
+    - text:
+        "Here are some immediate steps you can take:\n1. Document everything\n2.
+        Block the person\n3. Report to the platform\n4. Tell a trusted
+        adult\nWhich of these would you like to know more about?"

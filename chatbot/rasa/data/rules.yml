@@ -1,0 +1,24 @@
+version: "3.1"
+
+rules:
+  - rule: Emergency response
+    condition:
+      - slot_was_set:
+          - emergency_detected: true
+    steps:
+      - action: action_handle_emergency
+      - action: utter_emergency_resources
+      - action: action_notify_support
+
+  - rule: Evidence collection prompt
+    condition:
+      - slot_was_set:
+          - evidence_mentioned: true
+    steps:
+      - action: utter_evidence_importance
+      - action: action_prepare_evidence_collection
+
+  - rule: Greet user
+    steps:
+      - intent: greet
+      - action: utter_greet
